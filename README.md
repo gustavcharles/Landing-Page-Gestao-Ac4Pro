@@ -1,6 +1,6 @@
-# 🛡️ Landing Page - Gestão AC-4
+# 🛡️ Landing Page - Gestão AC-4 Pro
 
-Landing page completa para divulgação do aplicativo Gestão AC-4, desenvolvido especialmente para militares, policiais e bombeiros.
+Landing page completa para divulgação do aplicativo Gestão AC-4 Pro, desenvolvido especialmente para militares, policiais e bombeiros.
 
 ## 📁 Arquivos
 
@@ -113,7 +113,7 @@ Landing page completa para divulgação do aplicativo Gestão AC-4, desenvolvido
 - Cartão: 2,49%
 - Boleto: R$ 2,49 por boleto
 
-### 💡 Recomendação para o Gestão AC-4:
+### 💡 Recomendação para o Gestão AC-4 Pro:
 
 **Para começar (MVP):**
 1. Use **Asaas** ou **Mercado Pago**

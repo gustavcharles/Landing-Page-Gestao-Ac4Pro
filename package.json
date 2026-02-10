@@ -1,0 +1,9 @@
+{
+  "name": "gestao-ac4-proxy",
+  "version": "1.0.0",
+  "description": "Proxy for Asaas Webhooks",
+  "main": "netlify/functions/proxy.js",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}

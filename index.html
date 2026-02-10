@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão AC-4 | Controle Financeiro para Militares</title>
+    <title>Gestão AC-4 Pro | Controle Financeiro para Militares</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,12 +14,12 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Header Sticky -->
+    <header class="header sticky">
         <nav class="nav container">
             <div class="logo">
                 <span class="logo-icon">🛡️</span>
-                <span class="logo-text">Gestão <strong>AC-4</strong></span>
+                <span class="logo-text">Gestão <strong>AC-4 Pro</strong></span>
             </div>
             <div class="nav-links">
                 <a href="#recursos">Recursos</a>
@@ -37,24 +37,48 @@
             <div class="hero-content">
                 <div class="badge">✨ Cálculo automático de AC-4</div>
                 <h1 class="hero-title">
-                    O único app que <span class="highlight">calcula seu AC-4 automaticamente</span> a partir das suas
-                    escalas
+                    Chega de planilha bagunçada. O único app que <span class="highlight">calcula seu AC-4
+                        automaticamente</span> a partir das suas escalas
                 </h1>
                 <p class="hero-subtitle">
-                    Controle financeiro completo desenvolvido exclusivamente para <strong>Polícia Militar, Bombeiros e
-                        Forças de Segurança</strong>. Lançamos seus plantões no calendário e o app faz o resto.
+                    Desenvolvido exclusivamente para <strong>Polícia Militar, Bombeiros e Forças de Segurança</strong>.
+                    Pense como militar, organize suas finanças sem esforço.
                 </p>
-                <div class="hero-cta">
-                    <a href="#teste" class="btn btn-large btn-primary">Começar Teste Grátis de 30 Dias</a>
-                    <span class="hero-guarantee">Sem cartão de crédito</span>
+                <form class="cta-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="whatsapp" placeholder="WhatsApp (00) 00000-0000" required
+                            maxlength="15">
+                    </div>
+                    <button type="submit" class="btn btn-large btn-primary">Começar Teste Grátis Agora</button>
+                    <p class="form-note">✅ Sem cartão de crédito • Cancele quando quiser</p>
+                </form>
+
+                <!-- Prova Social -->
+                <div class="social-proof">
+                    <div class="stars">★★★★★</div>
+                    <p><strong>A cada dia mais militares</strong> organizando suas finanças</p>
+                    <div class="avatars">
+                        <span class="avatar">👮</span>
+                        <span class="avatar">👨‍🚒</span>
+                        <span class="avatar">👮‍♀️</span>
+                        <span class="avatar">👨‍✈️</span>
+                        <span class="avatar">+</span>
+                    </div>
                 </div>
+
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">100%</span>
                         <span class="stat-label">Automático</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">R$ 99</span>
+                        <span class="stat-number">R$ 79,90</span>
                         <span class="stat-label">Por ano</span>
                     </div>
                     <div class="stat">
@@ -65,7 +89,7 @@
             </div>
             <div class="hero-image">
                 <div class="phone-mockup">
-                    <img src="images/dashboard-full.jpeg" alt="Dashboard Gestão AC-4 - Controle financeiro militar"
+                    <img src="images/dashboard-full.jpeg" alt="Dashboard Gestão AC-4 Pro - Controle financeiro militar"
                         class="app-screenshot">
                 </div>
             </div>
@@ -122,6 +146,49 @@
         </div>
     </section>
 
+    <!-- Comparativo Excel vs App -->
+    <section class="comparativo" id="comparativo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">⚔️ Comparativo</span>
+                <h2>Planilha Excel vs Gestão AC-4 Pro</h2>
+                <p>Veja porque militares estão migrando para o app</p>
+            </div>
+            <div class="comparativo-table">
+                <div class="comparativo-header">
+                    <div class="comparativo-col">❌ Excel</div>
+                    <div class="comparativo-col feature">Funcionalidade</div>
+                    <div class="comparativo-col winner">✅ Gestão AC-4 Pro</div>
+                </div>
+                <div class="comparativo-row">
+                    <div class="comparativo-col">Calcula manualmente no dedo</div>
+                    <div class="comparativo-col feature">Cálculo de AC-4</div>
+                    <div class="comparativo-col winner">Automático baseado nas escalas</div>
+                </div>
+                <div class="comparativo-row">
+                    <div class="comparativo-col">Perde plantões extras</div>
+                    <div class="comparativo-col feature">Alertas</div>
+                    <div class="comparativo-col winner">Notificações de plantões</div>
+                </div>
+                <div class="comparativo-row">
+                    <div class="comparativo-col">Planilha bagunçada</div>
+                    <div class="comparativo-col feature">Interface</div>
+                    <div class="comparativo-col winner">Design limpo e profissional</div>
+                </div>
+                <div class="comparativo-row">
+                    <div class="comparativo-col">Só no computador</div>
+                    <div class="comparativo-col feature">Acesso</div>
+                    <div class="comparativo-col winner">Celular, tablet e PC</div>
+                </div>
+                <div class="comparativo-row">
+                    <div class="comparativo-col">Fórmulas quebram</div>
+                    <div class="comparativo-col feature">Confiabilidade</div>
+                    <div class="comparativo-col winner">Sempre funcionando</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Recursos -->
     <section class="features" id="recursos">
         <div class="container">
@@ -133,7 +200,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">📅</div>
                     <h3>Calendário de Escalas</h3>
-                    <p>Visualize todos os seus plantões em um calendário intuitivo. Nunca mais perca um
+                    <p>Visualize seus plantões 12x36, 24h, D12, N12 em um calendário intuitivo. Nunca mais perca um
                         plantão extra.</p>
                 </div>
                 <div class="feature-card featured">
@@ -244,7 +311,7 @@
                                 class="real-screenshot">
                         </div>
                     </div>
-                    <p>Calendário com seus plantões, fácil e intuitivo</p>
+                    <p>Calendário com seus plantões 24h, D10, N12</p>
                 </div>
                 <div class="screenshot">
                     <div class="screenshot-frame">
@@ -259,7 +326,7 @@
                                 class="real-screenshot">
                         </div>
                     </div>
-                    <p>Cadastro de escalas em poucos cliques</p>
+                    <p>Cadastro de escalas 12x36 em poucos cliques</p>
                 </div>
                 <div class="screenshot">
                     <div class="screenshot-frame">
@@ -285,27 +352,89 @@
         <div class="container">
             <div class="section-header">
                 <h2>Investimento</h2>
-                <p>Menos que o valor de um único plantão extra por ano</p>
+                <p>Menos que um lanche por mês para nunca mais perder um plantão extra.</p>
             </div>
-            <div class="pricing-card">
-                <div class="pricing-badge">🎖️ Plano Militar</div>
-                <div class="pricing-price">
-                    <span class="currency">R$</span>
-                    <span class="amount">99</span>
-                    <span class="period">/ano</span>
+
+            <!-- Urgência Badge -->
+            <div class="urgency-banner">
+                🔥 <strong>Promoção de Lançamento</strong> - Vagas limitadas!
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plano Promocional -->
+                <div class="pricing-card promotional">
+                    <div class="promo-badge">⚡ MAIS POPULAR</div>
+                    <div class="pricing-badge">🎖️ Plano Lançamento</div>
+                    <div class="vagas-restantes">
+                        <span class="vagas-numero">50</span>
+                        <span class="vagas-texto">vagas restantes</span>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">39,90</span>
+                        <span class="period">/primeiro ano</span>
+                    </div>
+                    <p class="pricing-note">
+                        <span class="preco-antigo">De R$ 79,90</span>
+                        Por apenas R$ 3,32/mês
+                    </p>
+
+                    <!-- Garantia -->
+                    <div class="guarantee-badge">
+                        <span class="guarantee-icon">🔒</span>
+                        <div class="guarantee-text">
+                            <strong>30 Dias de Garantia</strong>
+                            <span>Não gostou? Devolvemos seu dinheiro</span>
+                        </div>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✅ Acesso completo por 1 ano</li>
+                        <li>✅ Cálculo automático de AC-4</li>
+                        <li>✅ Calendário de escalas ilimitado</li>
+                        <li>✅ Transações ilimitadas</li>
+                        <li>✅ Relatórios exportáveis</li>
+                        <li>✅ Suporte por email e WhatsApp</li>
+                        <li>✅ Atualizações gratuitas</li>
+                        <li class="bonus">🎁 BÔNUS: Relatório anual gratuito</li>
+                    </ul>
+                    <a href="#" class="btn btn-large btn-primary pulse checkout-btn" data-plan="promotional">Quero
+                        Aproveitar Agora</a>
+                    <p class="pricing-guarantee">Promoção válida para os 50 primeiros • Cancele quando quiser</p>
                 </div>
-                <p class="pricing-note">ou parcelado no cartão em até 12x</p>
-                <ul class="pricing-features">
-                    <li>✅ Acesso completo por 1 ano</li>
-                    <li>✅ Cálculo automático de AC-4</li>
-                    <li>✅ Calendário de escalas ilimitado</li>
-                    <li>✅ Transações ilimitadas</li>
-                    <li>✅ Relatórios exportáveis</li>
-                    <li>✅ Suporte por email</li>
-                    <li>✅ Atualizações gratuitas</li>
-                </ul>
-                <a href="#teste" class="btn btn-large btn-primary">Quero Testar 30 Dias Grátis</a>
-                <p class="pricing-guarantee">🔒 Sem compromisso. Cancele quando quiser.</p>
+
+                <!-- Plano Regular -->
+                <div class="pricing-card regular">
+                    <div class="pricing-badge">🎖️ Plano Stive</div>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">79,90</span>
+                        <span class="period">/ano</span>
+                    </div>
+                    <p class="pricing-note">Apenas R$ 6,65/mês • ou 12x no cartão</p>
+
+                    <!-- Garantia -->
+                    <div class="guarantee-badge">
+                        <span class="guarantee-icon">🔒</span>
+                        <div class="guarantee-text">
+                            <strong>30 Dias de Garantia</strong>
+                            <span>Não gostou? Devolvemos seu dinheiro</span>
+                        </div>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li>✅ Acesso completo por 1 ano</li>
+                        <li>✅ Cálculo automático de AC-4</li>
+                        <li>✅ Calendário de escalas ilimitado</li>
+                        <li>✅ Transações ilimitadas</li>
+                        <li>✅ Relatórios exportáveis</li>
+                        <li>✅ Suporte por email e WhatsApp</li>
+                        <li>✅ Atualizações gratuitas</li>
+                    </ul>
+                    <a href="#" class="btn btn-large btn-secondary checkout-btn" data-plan="regular">Quero Testar 10
+                        Dias Grátis</a>
+                    <p class="pricing-guarantee">Sem compromisso. Cancele quando quiser.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -316,9 +445,19 @@
             <div class="cta-box">
                 <h2>Pronto para organizar suas finanças?</h2>
                 <p>Comece seu teste gratuito de 30 dias agora. Sem cartão de crédito, sem compromisso.</p>
-                <form class="cta-form" action="#" method="POST">
-                    <input type="email" placeholder="Digite seu email" required>
-                    <button type="submit" class="btn btn-large btn-primary">Começar Teste Grátis</button>
+                <form class="cta-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="whatsapp" placeholder="WhatsApp (00) 00000-0000" required
+                            maxlength="15">
+                    </div>
+                    <button type="submit" class="btn btn-large btn-primary">Começar Teste Grátis Agora</button>
+                    <p class="form-note">✅ Sem cartão de crédito • Cancele quando quiser</p>
                 </form>
                 <p class="cta-note">👮‍♂️ Desenvolvido especialmente para militares e forças de segurança</p>
             </div>
@@ -359,7 +498,8 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>O Gestão AC-4 é muito mais prático que planilha. Além de calcular AC-4 automaticamente, você
+                        <p>O Gestão AC-4 Pro é muito mais prático que planilha. Além de calcular AC-4 automaticamente,
+                            você
                             tem calendário visual de escalas, alertas de gastos e relatórios profissionais. E pode
                             exportar seus dados para Excel a qualquer momento.</p>
                     </div>
@@ -381,7 +521,8 @@
                     </button>
                     <div class="faq-answer">
                         <p>Sim! Você pode cancelar sua assinatura a qualquer momento, sem taxas ou multas. Seu acesso
-                            continua até o final do período pago.</p>
+                            continua até o final do período pago. E temos garantia de 30 dias: se não gostar, devolvemos
+                            seu dinheiro.</p>
                     </div>
                 </div>
             </div>
@@ -394,7 +535,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-icon">🛡️</span>
-                    <span class="logo-text">Gestão <strong>AC-4</strong></span>
+                    <span class="logo-text">Gestão <strong>AC-4 Pro</strong></span>
                     <p>Controle financeiro inteligente para militares e forças de segurança pública.</p>
                 </div>
                 <div class="footer-links">
@@ -407,6 +548,7 @@
                     <div class="footer-col">
                         <h4>Suporte</h4>
                         <a href="mailto:suporte@gestaoac4.com.br">Email</a>
+                        <a href="https://wa.me/5562982755654" target="_blank">WhatsApp</a>
                         <a href="#faq">FAQ</a>
                     </div>
                     <div class="footer-col">
@@ -417,11 +559,21 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Gestão AC-4. Todos os direitos reservados.</p>
+                <p>© 2026 Gestão AC-4 Pro. Todos os direitos reservados.</p>
                 <p>Feito com 💚 para quem protege a sociedade.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5562982755654?text=Olá! Vi o site do Gestão AC-4 Pro e quero saber mais sobre o app."
+        class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
 
     <script src="script.js"></script>
 </body>

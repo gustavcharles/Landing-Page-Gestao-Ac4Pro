@@ -80,7 +80,8 @@ function getSubscriptionCount(apiKey, linkId) {
             method: 'GET',
             headers: {
                 'access_token': apiKey,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'User-Agent': 'Netlify-Function'
             }
         };
 

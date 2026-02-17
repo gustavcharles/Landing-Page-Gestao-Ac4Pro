@@ -1,0 +1,9 @@
+Account: Firebase - guganauta@gmail.com
+
+Google Cloud: API Google Sheets - AIzaSyCXHgt3FpLm1C5x1AvUpstvAbdj8Ct-BSA
+
+O ID da planilha Google Sheets: 1zonPh35EATmwcMWvyCtGXIcj87uzvU-w3SwdkQFWoRw
+
+O link da pagina de vendas é esse: https://gestaoac4.netlify.app/
+
+Chave API Asaas: $aact_prod_000MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjU5ZDYzNWJiLWRjYjItNDkzNC04NGVjLTEwNGEwYTI3MzI1OTo6JGFhY2hfM2VmMjYxZGUtNmViOC00NTQ5LTlmZGYtY2I3Y2JkNDE0OGE1

@@ -2,6 +2,26 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '895902636390825');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=895902636390825&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão AC-4 Pro | Controle Financeiro para Militares</title>
@@ -141,6 +161,29 @@
                         <p>O app calcula quantos plantões você fez e lança o valor no mês que vai receber. Zero erro!
                         </p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demonstração Detalhada -->
+    <section class="demo-diferencial section-dark">
+        <div class="container">
+            <div class="demo-grid">
+                <div class="demo-image">
+                    <img src="Images/detalhes-plantao.png" alt="Detalhes do Plantão - Cálculo de AC-4"
+                        class="img-responsive glow-effect">
+                </div>
+                <div class="demo-text">
+                    <span class="section-badge">🎯 Precisão Total</span>
+                    <h2>Controle na Palma da Sua Mão</h2>
+                    <p>Veja exatamente quanto você vai receber por cada plantão. O app considera horários reais, escalas
+                        de reforço e prazos de pagamento.</p>
+                    <ul class="demo-features">
+                        <li>📍 Localização e horários precisos</li>
+                        <li>💵 Cálculo automático de AC-4</li>
+                        <li>📅 Lançamento imediato no financeiro</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -352,7 +395,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Investimento</h2>
-                <p>Menos que um lanche por mês para nunca mais perder um plantão extra.</p>
+                <p>Menos que um café por dia para nunca mais perder um plantão extra.</p>
             </div>
 
             <!-- Urgência Badge -->
@@ -368,6 +411,9 @@
                     <div class="vagas-restantes">
                         <span class="vagas-numero">50</span>
                         <span class="vagas-texto">vagas restantes</span>
+                        <div class="vagas-bar-container">
+                            <div class="vagas-bar-fill" id="vagas-bar"></div>
+                        </div>
                     </div>
                     <div class="pricing-price">
                         <span class="currency">R$</span>
@@ -398,8 +444,8 @@
                         <li>✅ Atualizações gratuitas</li>
                         <li class="bonus">🎁 BÔNUS: Relatório anual gratuito</li>
                     </ul>
-                    <a href="#" class="btn btn-large btn-primary pulse checkout-btn" data-plan="promotional">Quero
-                        Aproveitar Agora</a>
+                    <a href="#" class="btn btn-large btn-primary pulse checkout-btn" onclick="fbq('track', 'Lead');"
+                        data-plan="promotional">Quero Aproveitar Agora</a>
                     <p class="pricing-guarantee">Promoção válida para os 50 primeiros • Cancele quando quiser</p>
                 </div>
 
@@ -431,8 +477,9 @@
                         <li>✅ Suporte por email e WhatsApp</li>
                         <li>✅ Atualizações gratuitas</li>
                     </ul>
-                    <a href="#" class="btn btn-large btn-secondary checkout-btn" data-plan="regular">Quero Testar 10
-                        Dias Grátis</a>
+                    <a href="#" class="btn btn-large btn-secondary checkout-btn" onclick="fbq('track', 'Lead');"
+                        data-plan="trial">Quero Começar Teste
+                        Grátis</a>
                     <p class="pricing-guarantee">Sem compromisso. Cancele quando quiser.</p>
                 </div>
             </div>

@@ -113,19 +113,41 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     async function updateVacancyDisplay() {
         const vacancyElements = document.querySelectorAll('.vagas-numero');
+        const vacancyBar = document.getElementById('vagas-bar');
         const vacancies = await fetchVacanciesFromAPI();
+        const maxVacancies = 50; // Total de vagas inicial
 
         vacancyElements.forEach(el => {
             if (vacancies !== null) {
                 el.textContent = vacancies;
 
+                // Atualizar barra visual
+                if (vacancyBar) {
+                    const percentage = (vacancies / maxVacancies) * 100;
+                    vacancyBar.style.width = percentage + '%';
+                }
+
+                // Gerenciar transição automática de preço
+                const pricingGrid = document.querySelector('.pricing-grid');
+                const urgencyBanner = document.querySelector('.urgency-banner');
+
+                if (vacancies <= 0) {
+                    if (pricingGrid) pricingGrid.classList.add('is-sold-out');
+                    if (urgencyBanner) urgencyBanner.style.display = 'none';
+                } else {
+                    if (pricingGrid) pricingGrid.classList.remove('is-sold-out');
+                    if (urgencyBanner) urgencyBanner.style.display = 'block';
+                }
+
                 // Add visual warning when vacancies are low
                 if (vacancies <= 10) {
                     el.style.color = '#ef4444';
                     el.style.animation = 'pulse 2s ease-in-out infinite';
+                    if (vacancyBar) vacancyBar.style.background = '#ef4444';
                 } else {
                     el.style.color = '';
                     el.style.animation = '';
+                    if (vacancyBar) vacancyBar.style.background = '';
                 }
             } else {
                 // Fallback display on error
@@ -224,6 +246,11 @@ document.addEventListener('DOMContentLoaded', function () {
             button.textContent = '✅ Cadastro realizado!';
             button.style.background = '#10b981';
 
+            // Redirecionar para o aplicativo após 1.5 segundos
+            setTimeout(() => {
+                window.location.href = 'https://controle-contas-ac4.web.app/login';
+            }, 1500);
+
             // Track event
             trackEvent('trial_signup', {
                 name: name,
@@ -261,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, observerOptions);
 
     // Observe feature cards, screenshots, etc.
-    document.querySelectorAll('.feature-card, .screenshot, .step').forEach(el => {
+    document.querySelectorAll('.feature-card, .screenshot, .step, .demo-grid').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -275,7 +302,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Links de checkout do Asaas - Configurados em 09/02/2026
     const CHECKOUT_LINKS = {
         promotional: 'https://www.asaas.com/c/g4u6zhnfpofrqrgj', // Plano Promocional - R$ 59,99/ano
-        regular: 'https://www.asaas.com/c/83f4e2mfuicyr6k9'      // Assinatura Anual - R$ 99,00/ano
+        regular: 'https://www.asaas.com/c/83f4e2mfuicyr6k9',      // Assinatura Anual - R$ 99,00/ano
+        trial: 'https://controle-contas-ac4.web.app/login'       // Link direto para App
     };
 
     // Conectar botões de checkout
@@ -287,6 +315,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const plan = this.getAttribute('data-plan');
             const checkoutUrl = CHECKOUT_LINKS[plan];
+
+            // Se for plano de teste, redirecionar diretamente
+            if (plan === 'trial') {
+                window.location.href = checkoutUrl;
+                return;
+            }
 
             // Verificar se o link foi configurado
             if (checkoutUrl.includes('SEU_LINK')) {

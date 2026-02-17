@@ -603,7 +603,86 @@ body {
 }
 
 .dot.yellow {
-    background: #f59e0b;
+    background: #000;
+}
+
+/* Estado Esgotado (Sold Out) */
+.pricing-grid.is-sold-out .pricing-card.promotional {
+    display: none;
+}
+
+.pricing-grid.is-sold-out {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Vagas Bar */
+.vagas-bar-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.vagas-bar-fill {
+    height: 100%;
+    background: var(--color-primary);
+    width: 100%;
+    transition: width 1s ease-out;
+}
+
+/* Demo Diferencial */
+.demo-diferencial {
+    padding: 100px 0;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.demo-image img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glow-effect {
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+.demo-features {
+    list-style: none;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .demo-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .demo-features li {
+        justify-content: center;
+    }
 }
 
 .dot.green {

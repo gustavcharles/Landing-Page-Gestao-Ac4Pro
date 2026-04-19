@@ -407,11 +407,12 @@ function initWhatsAppAnimation() {
     const chatObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                console.log('WhatsApp section in view, starting animation...');
                 animateBubbles(bubbles);
                 chatObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.2 });
 
     chatObserver.observe(whatsappSection);
 }

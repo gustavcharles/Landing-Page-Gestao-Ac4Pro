@@ -951,6 +951,18 @@ body {
     flex-shrink: 0;
 }
 
+.pricing-features li.disabled {
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.pricing-features li.disabled::before {
+    content: '✕';
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-muted);
+}
+
 .pricing-guarantee {
     font-size: 0.875rem;
     color: var(--color-text-muted);
@@ -1396,7 +1408,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     align-items: center;
 }

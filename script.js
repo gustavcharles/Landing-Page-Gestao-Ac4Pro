@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Links de checkout do Asaas - Configurados em 09/02/2026
     // Links de checkout do Asaas
     const CHECKOUT_LINKS = {
+        basic: 'https://www.asaas.com/c/04t3cyxseol379cp',
         mensal: 'https://www.asaas.com/c/g4u6zhnfpofrqrgj',
         anual: 'https://www.asaas.com/c/83f4e2mfuicyr6k9',
         trial: 'https://controle-contas-ac4.web.app/login'

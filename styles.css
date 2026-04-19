@@ -1881,3 +1881,248 @@ body {
 .feature-card:nth-child(4) {
     animation-delay: 0.3s;
 }
+
+/* WhatsApp Integration Section */
+.whatsapp-integration {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.whatsapp-content {
+    max-width: 500px;
+}
+
+.whatsapp-features {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.w-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.w-feature-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    color: #25d366;
+}
+
+.w-feature-text h3 {
+    font-size: 1.125rem;
+    margin-bottom: 4px;
+    color: var(--color-text);
+}
+
+.w-feature-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+}
+
+/* WhatsApp Mockup */
+.whatsapp-mockup {
+    background: #0b141a; /* WhatsApp Dark Mode BG */
+    border-radius: 32px;
+    border: 8px solid #1e293b;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(37, 211, 102, 0.1);
+}
+
+.wa-header {
+    background: #202c33;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.wa-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.wa-user-info h4 {
+    font-size: 0.9375rem;
+    color: #e9edef;
+}
+
+.wa-user-info span {
+    font-size: 0.75rem;
+    color: #8696a0;
+}
+
+.wa-chat-area {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    background-blend-mode: overlay;
+    background-size: 400px;
+}
+
+.wa-bubble {
+    max-width: 85%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    position: relative;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.wa-bubble.received {
+    align-self: flex-start;
+    background: #202c33;
+    color: #e9edef;
+    border-top-left-radius: 0;
+}
+
+.wa-bubble.sent {
+    align-self: flex-end;
+    background: #005c4b;
+    color: #e9edef;
+    border-top-right-radius: 0;
+}
+
+.wa-bubble .wa-time {
+    display: block;
+    font-size: 0.6875rem;
+    text-align: right;
+    margin-top: 4px;
+    color: #8696a0;
+}
+
+.wa-input-area {
+    background: #202c33;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.wa-input-mock {
+    flex: 1;
+    height: 40px;
+    background: #2a3942;
+    border-radius: 20px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    color: #8696a0;
+    font-size: 0.9375rem;
+}
+
+.wa-mic {
+    color: #8696a0;
+    font-size: 1.25rem;
+}
+
+/* Specific Bubble Types */
+.wa-audio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+}
+
+.wa-play-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #e9edef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e9edef;
+}
+
+.wa-waveform {
+    flex: 1;
+    height: 2px;
+    background: rgba(233, 237, 239, 0.3);
+    position: relative;
+}
+
+.wa-waveform::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: #e9edef;
+}
+
+.wa-summary {
+    background: #202c33 !important;
+    border-left: 4px solid #00a884;
+}
+
+.wa-summary strong {
+    color: #00a884;
+}
+
+/* Animation classes */
+.wa-bubble.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-out;
+}
+
+@media (max-width: 992px) {
+    .whatsapp-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .whatsapp-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .w-feature {
+        text-align: left;
+    }
+
+    .whatsapp-mockup {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

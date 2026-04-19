@@ -391,3 +391,52 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
     });
 });
 
+// ==========================================
+// WHATSAPP CHAT ANIMATION
+// ==========================================
+
+function initWhatsAppAnimation() {
+    const chatArea = document.getElementById('chat-area');
+    if (!chatArea) return;
+
+    const bubbles = chatArea.querySelectorAll('.wa-bubble');
+    const whatsappSection = document.getElementById('whatsapp');
+
+    if (!whatsappSection) return;
+
+    const chatObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateBubbles(bubbles);
+                chatObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    chatObserver.observe(whatsappSection);
+}
+
+function animateBubbles(bubbles) {
+    bubbles.forEach((bubble, index) => {
+        setTimeout(() => {
+            bubble.classList.add('show');
+            // Auto-scroll chat area to bottom
+            const chatArea = document.getElementById('chat-area');
+            if (chatArea) {
+                chatArea.scrollTo({
+                    top: chatArea.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }, index * 1200); // 1.2s delay between bubbles
+    });
+}
+
+// Ensure it runs after DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWhatsAppAnimation);
+} else {
+    initWhatsAppAnimation();
+}
+
+

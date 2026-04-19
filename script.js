@@ -306,11 +306,69 @@ function animateBubbles(bubbles) {
     });
 }
 
+
+// ==========================================
+// LIGHTBOX / IMAGE ZOOM
+// ==========================================
+
+function initLightbox() {
+    const images = document.querySelectorAll('.real-screenshot');
+    if (!images.length) return;
+
+    // Create lightbox elements
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.innerHTML = `
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="Visualização em tamanho real">
+    `;
+    document.body.appendChild(overlay);
+
+    const lightboxImg = overlay.querySelector('.lightbox-img');
+    const closeBtn = overlay.querySelector('.lightbox-close');
+
+    images.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling while zoomed
+            
+            trackEvent('image_zoom', {
+                src: img.src.split('/').pop(),
+                alt: img.alt
+            });
+        });
+    });
+
+    const closeLightbox = () => {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    overlay.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeLightbox();
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
 // Ensure it runs after DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initWhatsAppAnimation);
+    document.addEventListener('DOMContentLoaded', () => {
+        initWhatsAppAnimation();
+        initLightbox();
+    });
 } else {
     initWhatsAppAnimation();
+    initLightbox();
 }
 
 

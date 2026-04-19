@@ -75,104 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ==========================================
-    // VACANCY COUNTER SYSTEM (API-BASED)
+    // VACANCY COUNTER REMOVED (STATIC PRICING)
     // ==========================================
-
-    let currentVacancyData = null;
-    const VACANCY_API_ENDPOINT = '/.netlify/functions/get-vacancies';
-    const VACANCY_REFRESH_INTERVAL = 30000; // 30 seconds
-
-    /**
-     * Fetch vacancy data from API
-     */
-    async function fetchVacanciesFromAPI() {
-        try {
-            const response = await fetch(VACANCY_API_ENDPOINT);
-
-            if (!response.ok) {
-                throw new Error(`API error: ${response.status}`);
-            }
-
-            const data = await response.json();
-
-            if (data.success) {
-                currentVacancyData = data;
-                return data.remainingVacancies;
-            } else {
-                throw new Error(data.error || 'Unknown API error');
-            }
-        } catch (error) {
-            console.error('Error fetching vacancies:', error);
-            // Return null to indicate error, will show fallback
-            return null;
-        }
-    }
-
-    /**
-     * Update vacancy display on page
-     */
-    async function updateVacancyDisplay() {
-        const vacancyElements = document.querySelectorAll('.vagas-numero');
-        const vacancyBar = document.getElementById('vagas-bar');
-        const vacancies = await fetchVacanciesFromAPI();
-        const maxVacancies = 50; // Total de vagas inicial
-
-        vacancyElements.forEach(el => {
-            if (vacancies !== null) {
-                el.textContent = vacancies;
-
-                // Atualizar barra visual
-                if (vacancyBar) {
-                    const percentage = (vacancies / maxVacancies) * 100;
-                    vacancyBar.style.width = percentage + '%';
-                }
-
-                // Gerenciar transição automática de preço
-                const pricingGrid = document.querySelector('.pricing-grid');
-                const urgencyBanner = document.querySelector('.urgency-banner');
-
-                if (vacancies <= 0) {
-                    if (pricingGrid) pricingGrid.classList.add('is-sold-out');
-                    if (urgencyBanner) urgencyBanner.style.display = 'none';
-                } else {
-                    if (pricingGrid) pricingGrid.classList.remove('is-sold-out');
-                    if (urgencyBanner) urgencyBanner.style.display = 'block';
-                }
-
-                // Add visual warning when vacancies are low
-                if (vacancies <= 10) {
-                    el.style.color = '#ef4444';
-                    el.style.animation = 'pulse 2s ease-in-out infinite';
-                    if (vacancyBar) vacancyBar.style.background = '#ef4444';
-                } else {
-                    el.style.color = '';
-                    el.style.animation = '';
-                    if (vacancyBar) vacancyBar.style.background = '';
-                }
-            } else {
-                // Fallback display on error
-                el.textContent = '50';
-                console.warn('Using fallback vacancy count');
-            }
-        });
-    }
-
-    /**
-     * Get current vacancy count (for checkout validation)
-     */
-    function getCurrentVacancies() {
-        if (currentVacancyData && currentVacancyData.success) {
-            return currentVacancyData.remainingVacancies;
-        }
-        // Return null if no data available
-        return null;
-    }
-
-    // Initialize vacancy display on page load
-    updateVacancyDisplay();
-
-    // Refresh vacancy count periodically
-    setInterval(updateVacancyDisplay, VACANCY_REFRESH_INTERVAL);
 
     // ==========================================
     // GOOGLE SHEETS INTEGRATION
@@ -228,15 +132,12 @@ document.addEventListener('DOMContentLoaded', function () {
             button.textContent = '⏳ Enviando...';
             button.disabled = true;
 
-            // Prepare data for Google Sheets
-            const currentVacancies = getCurrentVacancies();
             const leadData = {
                 timestamp: new Date().toISOString(),
                 name: name,
                 email: email,
                 whatsapp: whatsapp,
-                source: 'Landing Page - Teste Grátis',
-                vacancies_remaining: currentVacancies !== null ? currentVacancies : 'unknown'
+                source: 'Landing Page - Teste Grátis'
             };
 
             // Send to Google Sheets
@@ -258,9 +159,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 whatsapp: whatsapp
             });
 
-            // Refresh vacancy count after submission
+            // Refresh flow (if needed)
             setTimeout(async () => {
-                await updateVacancyDisplay();
+                // ... animation or state reset
             }, 1000);
 
             // Reset form
@@ -300,10 +201,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
 
     // Links de checkout do Asaas - Configurados em 09/02/2026
+    // Links de checkout do Asaas
     const CHECKOUT_LINKS = {
-        promotional: 'https://www.asaas.com/c/g4u6zhnfpofrqrgj', // Plano Promocional - R$ 59,99/ano
-        regular: 'https://www.asaas.com/c/83f4e2mfuicyr6k9',      // Assinatura Anual - R$ 99,00/ano
-        trial: 'https://controle-contas-ac4.web.app/login'       // Link direto para App
+        mensal: 'https://www.asaas.com/c/g4u6zhnfpofrqrgj',
+        anual: 'https://www.asaas.com/c/83f4e2mfuicyr6k9',
+        trial: 'https://controle-contas-ac4.web.app/login'
     };
 
     // Conectar botões de checkout
@@ -316,41 +218,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const plan = this.getAttribute('data-plan');
             const checkoutUrl = CHECKOUT_LINKS[plan];
 
-            // Se for plano de teste, redirecionar diretamente
-            if (plan === 'trial') {
-                window.location.href = checkoutUrl;
-                return;
-            }
-
-            // Verificar se o link foi configurado
-            if (checkoutUrl.includes('SEU_LINK')) {
-                alert('⚠️ Checkout ainda não configurado. Configure os links do Asaas primeiro.');
-                console.error('Configure os links do Asaas em script.js na constante CHECKOUT_LINKS');
-                return;
-            }
-
-            // Verificar vagas disponíveis (apenas para plano promocional)
-            if (plan === 'promotional') {
-                const currentVacancies = getCurrentVacancies();
-
-                if (currentVacancies !== null && currentVacancies <= 0) {
-                    alert('😔 Desculpe, as vagas promocionais esgotaram!\n\nVocê pode adquirir o plano regular por R$ 79,90/ano.');
-
-                    // Scroll para o plano regular
-                    const regularPlan = document.querySelector('[data-plan="regular"]');
-                    if (regularPlan) {
-                        regularPlan.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        regularPlan.style.animation = 'pulse 1s ease-in-out 3';
-                    }
-                    return;
-                }
-            }
+            if (!checkoutUrl) return;
 
             // Analytics tracking
             trackEvent('checkout_initiated', {
                 plan: plan,
-                price: plan === 'promotional' ? '39.90' : '79.90',
-                vacancies_remaining: plan === 'promotional' ? getCurrentVacancies() : 'N/A'
+                price: plan === 'mensal' ? '15.90' : '149.90'
             });
 
             // Feedback visual antes de redirecionar
@@ -358,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.textContent = '⏳ Redirecionando...';
             this.style.opacity = '0.7';
 
-            // Redirecionar para checkout Asaas após pequeno delay
+            // Redirecionar para checkout Asaas
             setTimeout(() => {
                 window.location.href = checkoutUrl;
             }, 500);

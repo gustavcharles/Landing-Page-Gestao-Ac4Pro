@@ -1303,27 +1303,27 @@ body {
     }
 }
 
-/* Pricing Grid - Dois Cards */
+/* Pricing Grid - Layout e Destaque */
 .pricing-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
     margin: 0 auto;
-    align-items: start;
+    align-items: center;
 }
 
-.pricing-card.promotional {
+.pricing-card.destaque {
     border: 3px solid var(--color-primary);
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.3), var(--shadow-lg);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.25), var(--shadow-xl);
     transform: scale(1.05);
     position: relative;
     z-index: 2;
+    background: rgba(30, 41, 59, 0.8);
 }
 
 .pricing-card.regular {
-    opacity: 0.9;
-    transform: scale(0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .promo-badge {

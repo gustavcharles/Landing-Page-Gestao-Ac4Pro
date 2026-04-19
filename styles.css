@@ -135,6 +135,18 @@ body {
     box-shadow: 0 6px 20px rgba(5, 150, 105, 0.6);
 }
 
+.btn-secondary {
+    background: #1e293b;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background: #334155;
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
 .btn-large {
     padding: 16px 32px;
     font-size: 1rem;
@@ -942,7 +954,20 @@ body {
 .pricing-guarantee {
     font-size: 0.875rem;
     color: var(--color-text-muted);
-    margin-top: 16px;
+    margin-top: 12px;
+}
+
+.pricing-payment-info {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.pricing-card.destaque .pricing-payment-info {
+    color: var(--color-primary);
+    opacity: 0.9;
 }
 
 /* CTA Section */
